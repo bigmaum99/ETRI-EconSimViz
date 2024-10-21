@@ -1,215 +1,176 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<style>
-		.btn1 {height:80; width:300; font-size:20;
-			margin:10px;
-
-		}
-		.button-17 {
-		  align-items: center;
-		  appearance: none;
-		  background-color: #fff;
-		  border-radius: 24px;
-		  border-style: none;
-		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-		  box-sizing: border-box;
-		  color: #3c4043;
-		  cursor: pointer;
-		  display: inline-flex;
-		  fill: currentcolor;
-		  font-family: "Google Sans",Roboto,Arial,sans-serif;
-		  font-size: 14px;
-		  font-weight: 500;
-		  height: 48px;
-		  justify-content: center;
-		  letter-spacing: .25px;
-		  line-height: normal;
-		  max-width: 100%;
-		  overflow: visible;
-		  padding: 2px 24px;
-		  position: relative;
-		  text-align: center;
-		  text-transform: none;
-		  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-		  user-select: none;
-		  -webkit-user-select: none;
-		  touch-action: manipulation;
-		  width: auto;
-		  will-change: transform,opacity;
-		  z-index: 0;
-		  margin:20;
-		}
-
-		.button-17:hover {
-		  background: #F6F9FE;
-		  color: #174ea6;
-		}
-
-		.button-17:active {
-		  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-		  outline: none;
-		}
-
-		.button-17:focus {
-		  outline: none;
-		  border: 2px solid #4285f4;
-		}
-
-		.button-17:not(:disabled) {
-		  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-		}
-
-		.button-17:not(:disabled):hover {
-		  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
-		}
-
-		.button-17:not(:disabled):focus {
-		  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-		}
-
-		.button-17:not(:disabled):active {
-		  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-		}
-
-		.button-17:disabled {
-		  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-		}		
-		.result { border: 1px solid #aaa;
-		}
-		.bdy {margin : 20px}
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Display Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50% Width Divs</title>
+    <style>
         .container {
             display: flex;
         }
-        .box {
+
+        .left, .right {
             width: 50%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
         }
+
         .left {
+            background-color: ;
         }
+
         .right {
-        }		
-        .sel{
-        	font-size: 	20px;
-        	width:500px;
-        	height:50px;
+            background-color: ;
         }
-        .txtar{
-        	font-size: 	20px;
-        	width:500px;
-        	height:150px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-	</style>
-	<script language=jscript>
-		function go(str){
-			var ret = window.open('./calibResVw.html', 'PopupWin', "width=1200,height=850, top=10, left=10");
-		}
-	</script>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 4px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none; /* 언더라인 제거 */
+            color: black; /* 텍스트 색을 검정색으로 변경 */
+        }
+
+        /* 마우스를 올렸을 때 (hover) 스타일 */
+        a:hover {
+            text-decoration: underline; /* 마우스를 올렸을 때만 언더라인 */
+        }    
+        .scrollable-div {
+            max-height: 1000px; /* 원하는 세로 최대 크기 */
+            overflow: auto; /* 길어질 경우 스크롤 생김 */
+            border: 0px solid black; /* div의 테두리 */
+        }
+        .button-17 {
+          align-items: center;
+          appearance: none;
+          background-color: #fff;
+          border-radius: 24px;
+          border-style: none;
+          box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+          box-sizing: border-box;
+          color: #3c4043;
+          cursor: pointer;
+          display: inline-flex;
+          fill: currentcolor;
+          font-family: "Google Sans",Roboto,Arial,sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          height: 48px;
+          justify-content: center;
+          letter-spacing: .25px;
+          line-height: normal;
+          max-width: 100%;
+          overflow: visible;
+          padding: 2px 24px;
+          position: relative;
+          text-align: center;
+          text-transform: none;
+          transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          width: auto;
+          will-change: transform,opacity;
+          z-index: 0;
+          margin:20;
+        }                    
+    </style>
 </head>
-<body class=bdy>
-	<div align=center>
-		<h2>Calibration</h2>
+<body>
+    <h1>Calibration Results</h1>
+    <div id="jsonContent"></div>
 
+  <script>
+        // JSON 파일에서 데이터를 가져와 정렬한 후 테이블에 바인딩하는 함수
+        async function loadAndDisplayData() {
+            try {
+                // JSON 파일 불러오기 (fetch 사용)
+                const response = await fetch('calibration_parameters.json');
+                const jsonData = await response.json();
+                
+                // 변수 리스트 추출
+                const variables = jsonData.data.map(item => ({
+                    variable_name: item.variable_name,
+                    variable_dsp_nm: item.variable_dsp_nm
+                }));
+
+                // 변수 갯수 계산
+                const variableCounts = {};
+                variables.forEach(variable => {
+                    const key = `${variable.variable_name}-${variable.variable_dsp_nm}`;
+                    if (!variableCounts[key]) {
+                        variableCounts[key] = { ...variable, count: 0 };
+                    }
+                    variableCounts[key].count++;
+                });
+
+                // 객체를 배열로 변환 후 정렬 (count 기준 내림차순, variable_name 기준 오름차순)
+                const sortedVariables = Object.values(variableCounts).sort((a, b) => {
+                    if (b.count === a.count) {
+                        return a.variable_name.localeCompare(b.variable_name);
+                    }
+                    return b.count - a.count;
+                });
+
+                // 테이블 바인딩
+                const tableBody = document.querySelector('#variableTable tbody');
+                sortedVariables.forEach(variable => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_name}</a></td>
+                        <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_dsp_nm}</a></td>
+                        <td style=display:>${variable.count}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading or processing data:', error);
+            }
+        }
+
+        // 페이지가 로드될 때 데이터를 로드하고 테이블에 표시
+        window.onload = loadAndDisplayData;
+    </script>
     <div class="container">
-        <div class="box left">
-       		Calibration Parameters<br><br>
+        <div class="left scrollable-div">
+            <table id="variableTable">
+                <thead>
+                    <tr>
+                        <th>Variable Name</th>
+                        <th>Variable Display Name</th>
+                        <!-- <th>Count</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JSON 데이터를 바인딩할 곳 -->
+                </tbody>
+            </table>            
 
-			<select name="industry" id="industry" class="sel">
-			    <option value="primary_metal_products">1차 금속제품</option>
-			    <option value="construction">건설</option>
-			    <option value="public_admin_defense_social_security">공공행정, 국방 및 사회보장</option>
-			    <option value="mining_products">광산품</option>
-			    <option value="education_services">교육서비스</option>
-			    <option value="fabricated_metal_products">금속가공제품</option>
-			    <option value="financial_insurance_services">금융 및 보험 서비스</option>
-			    <option value="machinery_equipment">기계 및 장비</option>
-			    <option value="other_services">기타 서비스</option>
-			    <option value="agriculture_fishery_products">농림수산품</option>
-			    <option value="wholesale_retail_trade">도소매 및 상품중개서비스</option>
-			    <option value="wood_paper_printing">목재 및 종이, 인쇄</option>
-			    <option value="health_social_welfare_services">보건 및 사회복지 서비스</option>
-			    <option value="real_estate_services">부동산서비스</option>
-			    <option value="non_metallic_mineral_products">비금속광물제품</option>
-			    <option value="business_support_services">사업지원서비스</option>
-			    <option value="coal_petroleum_products">석탄 및 석유제품</option>
-			    <option value="textile_leather_products">섬유 및 가죽제품</option>
-			    <option value="water_waste_management_services">수도, 폐기물처리 및 재활용서비스</option>
-			    <option value="arts_sports_recreation_services">예술, 스포츠 및 여가 관련 서비스</option>
-			    <option value="transportation_services">운송서비스</option>
-			    <option value="transport_equipment">운송장비</option>
-			    <option value="food_beverages">음식료품</option>
-			    <option value="restaurant_accommodation_services">음식점 및 숙박서비스</option>
-			    <option value="electrical_equipment">전기장비</option>
-			    <option value="electricity_gas_steam">전력, 가스 및 증기</option>
-			    <option value="professional_scientific_technical_services">전문, 과학 및 기술 서비스</option>
-			    <option value="information_communication_broadcasting_services">정보통신 및 방송 서비스</option>
-			    <option value="manufacturing_repair_industrial_equipment">제조임가공 및 산업용 장비 수리</option>
-			    <option value="computer_electronic_optical_devices">컴퓨터, 전자 및 광학기기</option>
-			    <option value="chemical_products">화학제품</option>
-			</select>
-
-			<br><br>
-
-			<textarea class=txtar>철강, 구리 등 가공되지 않은 금속 제품</textarea>
         </div>
-        <div class="box right">
-        		Calibration Initial Conditions<br><br>
-				<select name="industry" id="industry" class="sel">
-				    <option value="accommodation_food_service">Accommodation and food service activities</option>
-				    <option value="admin_support_service">Administrative and support service activities</option>
-				    <option value="agriculture_forestry_fishing">Agriculture, forestry and fishing</option>
-				    <option value="arts_entertainment_recreation">Arts, entertainment and recreation</option>
-				    <option value="construction">Construction</option>
-				    <option value="education">Education</option>
-				    <option value="electricity_gas_steam_air_supply">Electricity, gas, steam and air conditioning supply</option>
-				    <option value="financial_insurance">Financial and insurance activities</option>
-				    <option value="health_social_work">Human health and social work activities</option>
-				    <option value="information_communication">Information and communication</option>
-				    <option value="basic_metals">Manufacture of basic metals</option>
-				    <option value="chemicals_chemical_products">Manufacture of chemicals and chemical products</option>
-				    <option value="coke_petroleum_products">Manufacture of coke and refined petroleum products</option>
-				    <option value="computer_electronic_optical_products">Manufacture of computer, electronic and optical products</option>
-				    <option value="electrical_equipment">Manufacture of electrical equipment</option>
-				    <option value="fabricated_metal_products">Manufacture of fabricated metal products, except machinery and equipment</option>
-				    <option value="food_beverages_tobacco">Manufacture of food products, beverages and tobacco products</option>
-				    <option value="machinery_equipment_nec">Manufacture of machinery and equipment n.e.c.</option>
-				    <option value="rubber_plastics_non_metallic">Manufacture of rubber, plastics and other non-metallic mineral products</option>
-				    <option value="textiles_apparel_leather">Manufacture of textiles, wearing apparel, leather and related products</option>
-				    <option value="transport_equipment">Manufacture of transport equipment</option>
-				    <option value="wood_paper_printing">Manufacture of wood and paper products: printing</option>
-				    <option value="mining_quarrying">Mining and quarrying</option>
-				    <option value="omega">omega</option>
-				    <option value="other_manufacturing_repair_installation">Other manufacturing, repair and installation of machinery and equipment</option>
-				    <option value="other_services">Other service activities</option>
-				    <option value="professional_scientific_technical">Professional, scientific and technical activities</option>
-				    <option value="public_admin_defence_social_security">Public administration and defence, compulsory social security</option>
-				    <option value="real_estate">Real estate activities</option>
-				    <option value="sb_inact">sb_inact</option>
-				    <option value="sb_other">sb_other</option>
-				    <option value="transport_storage">Transportation and storage</option>
-				    <option value="w_UB">w_UB</option>
-				    <option value="water_waste_management">Water supply, sewerage, waste management and remediation activities</option>
-				    <option value="wholesale_retail_trade">Wholesale and retail trade, repair of motor vehicles and motorcycles</option>
-				    <option value="D_H">D_H</option>
-				    <option value="D_I">D_I</option>
-				    <option value="D_RoW">D_RoW</option>
-				    <option value="E_CB">E_CB</option>
-				    <option value="E_k">E_k</option>
-				    <option value="K_H">K_H</option>
-				    <option value="L_G">L_G</option>
-				    <option value="L_I">L_I</option>
-				</select>
-
-    	</div>
+        <div class="right" style="background-color:">
+            <iframe name=if1 src="" width="100%" height="100%" frameborder="0"></iframe>                
+        </div>
     </div>
 
 
-    <div style="display:;margin-top:100px">
-		<button class=button-17 role="button" onclick="self.reload()">리셋하기</button>
-		<button class=button-17 role="button" onclick="self.close()">창 닫기</button>
+
+    <div style="display:;margin-top:100px;background-color:;text-align:center">
+        <!-- <button class=button-17 role="button" onclick="self.reload()">리셋하기</button> -->
+        <button class=button-17 role="button" onclick="self.close()">창 닫기</button>
     </div>
 
-	</div>
 </body>
 </html>

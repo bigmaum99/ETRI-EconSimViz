@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // URL에서 특정 파라미터 값을 가져오는 함수
+        function getParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName); // 쿼리 문자열에서 paramName에 해당하는 값을 반환
+        }
+
+        // JSON 파일에서 variable_name = "tau_EXPORT"인 데이터를 필터링하고, 그 value 값을 표시하는 함수
+        async function loadAndDisplayASGData() {
+            try {
+
+                const varNm = getParam('varNm');
+                //alert(varNm)
+
+                // JSON 파일 불러오기 (fetch 사용)
+                const response = await fetch('calibration_parameters.json');
+                const jsonData = await response.json();
+
+                // variable_name이 "tau_EXPORT"인 데이터 필터링
+                const aSGData = jsonData.data.filter(item => item.variable_name === varNm);
+
+                const varName = document.getElementById('varName');
+                const titleDisplay = document.getElementById('titleDisplay') 
+                titleDisplay.textContent = `Values of ` + varNm;
+
+
+
+                // 테이블에 데이터 표시
+                const tableBody = document.getElementById('dataDisplay');
+                aSGData.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class='td1'>${index+1}</td>
+                        <td class='td1'>${item.value || 'N/A'}</td>
+                    `;
+                    tableBody.appendChild(row);                
+                })
+
+                // 만약 데이터가 없다면 메시지 표시
+                if (aSGData.length === 0) {
+                        const noDataRow = document.createElement('tr');
+                        noDataRow.innerHTML = `<td colspan="4">No data found for variable_name = "a_sg".</td>`;
+                        tableBody.appendChild(noDataRow);
+                }
+            
+            } catch (error) {
+                    console.error('Error loading or processing data:', error);
+                    const tableBody = document.getElementById('dataDisplay');
+                    const errorRow = document.createElement('tr');
+                    errorRow.innerHTML = `<td colspan="4">Error loading data.</td>`;
+                    tableBody.appendChild(errorRow);
+            }
+        }
+
+        // 페이지 로드 시 데이터를 불러오고 값을 표시
+        window.onload = loadAndDisplayASGData;
+
+    </script>
+    <style>.td1 {background-color:;padding:8px}</style>
+</head>
+<body>
+
+    <h1 id=titleDisplay></h1>
+
+    <table style="height:100%;width:250px" border="0">
+        <thead>
+            <th>idx</th>
+            <th>Value</th>
+        </thead>
+        <tbody id="dataDisplay">
+            <!-- 데이터가 여기에 표시됩니다 -->
+        </tbody>
+    </table>
+
+</body>
+</html>
