@@ -131,8 +131,8 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_name}</a></td>
-                        <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_dsp_nm}</a></td>
-                        <td style=display:>${variable.count}</td>
+                        <td tooltip="${variable.count}"><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_dsp_nm}</a></td>
+                        <td style=display:none>${variable.count}</td>
                     `;
                     tableBody.appendChild(row);
                 });
