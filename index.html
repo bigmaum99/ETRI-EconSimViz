@@ -13,7 +13,8 @@
     <script>
         async function loadJSON() {
             try {
-                const response = await fetch('calibration_parameters.json'); // JSON 파일 로드
+                // const response = await fetch('calibration_parameters.json'); // JSON 파일 로드
+                const response = await fetch('data.json'); // JSON 파일 로드
 
                 
                 const jsonData = await response.json();    // JSON 데이터 파싱
@@ -24,7 +25,8 @@
 
                 // 데이터 디스플레이
                 data.forEach(item => {
-                    jsonContent.innerHTML += `<p><strong>Variable Name:</strong> ${item.variable_name} <br><strong>Display Name:</strong> ${item.variable_dsp_nm}</p>`;
+                    //jsonContent.innerHTML += `<p><strong>Variable Name:</strong> ${item.variable_name} <br><strong>Display Name:</strong> ${item.variable_dsp_nm}</p>`;
+                    jsonContent.innerHTML += `<p><strong>Variable Name:</strong> ${item.Name} <br><strong>Display Name:</strong> ${item.age}</p>`;
                 });
 
                 // 총 데이터 갯수 표시
