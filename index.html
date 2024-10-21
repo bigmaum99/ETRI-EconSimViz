@@ -15,8 +15,6 @@
             try {
                 // const response = await fetch('calibration_parameters.json'); // JSON 파일 로드
                 const response = await fetch('data.json'); // JSON 파일 로드
-
-                
                 const jsonData = await response.json();    // JSON 데이터 파싱
                 
                 const jsonContent = document.getElementById('jsonContent');
