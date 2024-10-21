@@ -90,6 +90,15 @@
         }
         .right {
         }		
+        .sel{
+        	font-size: 	20px;
+        	width:500px;
+        }
+        .txtar{
+        	font-size: 	20px;
+        	width:500px;
+        	height:150px;
+        }
 	</style>
 	<script language=jscript>
 		function go(str){
@@ -102,16 +111,103 @@
 		<h2>Calibration</h2>
 
     <div class="container">
-        <div class="box left"></div>
-        <div class="box right">오른쪽 DIV</div>
+        <div class="box left">
+       		Calibration Parameters<br><br>
+
+			<select name="industry" id="industry" class="sel">
+			    <option value="primary_metal_products">1차 금속제품</option>
+			    <option value="construction">건설</option>
+			    <option value="public_admin_defense_social_security">공공행정, 국방 및 사회보장</option>
+			    <option value="mining_products">광산품</option>
+			    <option value="education_services">교육서비스</option>
+			    <option value="fabricated_metal_products">금속가공제품</option>
+			    <option value="financial_insurance_services">금융 및 보험 서비스</option>
+			    <option value="machinery_equipment">기계 및 장비</option>
+			    <option value="other_services">기타 서비스</option>
+			    <option value="agriculture_fishery_products">농림수산품</option>
+			    <option value="wholesale_retail_trade">도소매 및 상품중개서비스</option>
+			    <option value="wood_paper_printing">목재 및 종이, 인쇄</option>
+			    <option value="health_social_welfare_services">보건 및 사회복지 서비스</option>
+			    <option value="real_estate_services">부동산서비스</option>
+			    <option value="non_metallic_mineral_products">비금속광물제품</option>
+			    <option value="business_support_services">사업지원서비스</option>
+			    <option value="coal_petroleum_products">석탄 및 석유제품</option>
+			    <option value="textile_leather_products">섬유 및 가죽제품</option>
+			    <option value="water_waste_management_services">수도, 폐기물처리 및 재활용서비스</option>
+			    <option value="arts_sports_recreation_services">예술, 스포츠 및 여가 관련 서비스</option>
+			    <option value="transportation_services">운송서비스</option>
+			    <option value="transport_equipment">운송장비</option>
+			    <option value="food_beverages">음식료품</option>
+			    <option value="restaurant_accommodation_services">음식점 및 숙박서비스</option>
+			    <option value="electrical_equipment">전기장비</option>
+			    <option value="electricity_gas_steam">전력, 가스 및 증기</option>
+			    <option value="professional_scientific_technical_services">전문, 과학 및 기술 서비스</option>
+			    <option value="information_communication_broadcasting_services">정보통신 및 방송 서비스</option>
+			    <option value="manufacturing_repair_industrial_equipment">제조임가공 및 산업용 장비 수리</option>
+			    <option value="computer_electronic_optical_devices">컴퓨터, 전자 및 광학기기</option>
+			    <option value="chemical_products">화학제품</option>
+			</select>
+
+			<br><br>
+
+			<textarea class=txtar>철강, 구리 등 가공되지 않은 금속 제품</textarea>
+        </div>
+        <div class="box right">
+        		Calibration Initial Conditions<br><br>
+				<select name="industry" id="industry" class="sel">
+				    <option value="accommodation_food_service">Accommodation and food service activities</option>
+				    <option value="admin_support_service">Administrative and support service activities</option>
+				    <option value="agriculture_forestry_fishing">Agriculture, forestry and fishing</option>
+				    <option value="arts_entertainment_recreation">Arts, entertainment and recreation</option>
+				    <option value="construction">Construction</option>
+				    <option value="education">Education</option>
+				    <option value="electricity_gas_steam_air_supply">Electricity, gas, steam and air conditioning supply</option>
+				    <option value="financial_insurance">Financial and insurance activities</option>
+				    <option value="health_social_work">Human health and social work activities</option>
+				    <option value="information_communication">Information and communication</option>
+				    <option value="basic_metals">Manufacture of basic metals</option>
+				    <option value="chemicals_chemical_products">Manufacture of chemicals and chemical products</option>
+				    <option value="coke_petroleum_products">Manufacture of coke and refined petroleum products</option>
+				    <option value="computer_electronic_optical_products">Manufacture of computer, electronic and optical products</option>
+				    <option value="electrical_equipment">Manufacture of electrical equipment</option>
+				    <option value="fabricated_metal_products">Manufacture of fabricated metal products, except machinery and equipment</option>
+				    <option value="food_beverages_tobacco">Manufacture of food products, beverages and tobacco products</option>
+				    <option value="machinery_equipment_nec">Manufacture of machinery and equipment n.e.c.</option>
+				    <option value="rubber_plastics_non_metallic">Manufacture of rubber, plastics and other non-metallic mineral products</option>
+				    <option value="textiles_apparel_leather">Manufacture of textiles, wearing apparel, leather and related products</option>
+				    <option value="transport_equipment">Manufacture of transport equipment</option>
+				    <option value="wood_paper_printing">Manufacture of wood and paper products: printing</option>
+				    <option value="mining_quarrying">Mining and quarrying</option>
+				    <option value="omega">omega</option>
+				    <option value="other_manufacturing_repair_installation">Other manufacturing, repair and installation of machinery and equipment</option>
+				    <option value="other_services">Other service activities</option>
+				    <option value="professional_scientific_technical">Professional, scientific and technical activities</option>
+				    <option value="public_admin_defence_social_security">Public administration and defence, compulsory social security</option>
+				    <option value="real_estate">Real estate activities</option>
+				    <option value="sb_inact">sb_inact</option>
+				    <option value="sb_other">sb_other</option>
+				    <option value="transport_storage">Transportation and storage</option>
+				    <option value="w_UB">w_UB</option>
+				    <option value="water_waste_management">Water supply, sewerage, waste management and remediation activities</option>
+				    <option value="wholesale_retail_trade">Wholesale and retail trade, repair of motor vehicles and motorcycles</option>
+				    <option value="D_H">D_H</option>
+				    <option value="D_I">D_I</option>
+				    <option value="D_RoW">D_RoW</option>
+				    <option value="E_CB">E_CB</option>
+				    <option value="E_k">E_k</option>
+				    <option value="K_H">K_H</option>
+				    <option value="L_G">L_G</option>
+				    <option value="L_I">L_I</option>
+				</select>
+
+    	</div>
     </div>
 
 
-		<button class=button-17 role="button" onclick="go('c')">Calibration 실행</button>
-		<button class=button-17 role="button">Calibration 결과보기</button>
-
-		<button class=button-17 role="button" onclick="go('s')">Simulation 실행</button>
-		<button class=button-17 role="button">Simulation 결과보기</button>
+    <div style="display:;margin-top:100px">
+		<button class=button-17 role="button" onclick="self.reload()">리셋하기</button>
+		<button class=button-17 role="button" onclick="self.close()">창 닫기</button>
+    </div>
 
 	</div>
 </body>
