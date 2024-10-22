@@ -14,8 +14,10 @@
             text-align: center;
         }
         th, td {
-            padding: 8px;
-            font-size:12px;
+            padding: 2px;
+            padding-top:8px;
+            padding-bottom:8px;
+            font-size:10px;
         }
     </style>
 </head>
@@ -51,18 +53,17 @@
 
 
                 // variable_name이 "tau_EXPORT"인 데이터 필터링
-                const aSGData = jsonData.data.filter(item => item.variable_name === varNm);
-                //console.log(aSGData); //961개
+                const filteredData = jsonData.data.filter(item => item.variable_name === varNm);
+                
+                console.log(filteredData); //961개
 
 
-                if (aSGData) {
-                    // 가로축과 세로축 값을 정의 (31개의 값)
-                    const toSecCdList = Array.from({length: 31}, (_, i) => i + 1); // 1부터 31까지
-                    const frSecCdList = Array.from({length: 31}, (_, i) => i + 1); // 1부터 31까지
+                if (filteredData) {
 
-                    //console.log("aa")
-                    //console.log(toSecCdList) //31개
-                    // console.log(frSecCdList) //31개
+                    // fr_sec_cd 리스트를 중복 제거 후 정렬
+                    const frSecCdList = [...new Set(filteredData.map(entry => entry.fr_sec_cd).filter(cd => cd))].sort();
+                    const toSecCdList = [...new Set(filteredData.map(entry => entry.to_sec_cd).filter(cd => cd))].sort();
+
 
                     // 테이블 요소 가져오기
                     const tableHeader = document.getElementById('tableHeader');
@@ -78,18 +79,21 @@
                     });
                     tableHeader.innerHTML = headerRow;
 
+
                     // 테이블 본문 만들기 (세로축: fr_sec_cd)
                     frSecCdList.forEach(frSecCd => {
+
+                        console.log(frSecCd)
+
                         const row = document.createElement('tr');
-                        let rowContent = `<td>${frSecCd}</td>`; // 첫 번째 열에 fr_sec_cd 표시
+                        let rowContent = `<td class=td1>${frSecCd}</td>`; // 첫 번째 열에 fr_sec_cd 표시
 
                         toSecCdList.forEach(toSecCd => {
                             // 각 셀에 fr_sec_cd와 to_sec_cd에 해당하는 값 찾기
-                            const cellData = aSGData.find(item => item.fr_sec_cd === frSecCd && item.to_sec_cd === toSecCd);
+                            const cellData = filteredData.find(item => item.fr_sec_cd === frSecCd && item.to_sec_cd === toSecCd);
 
-                            //const value = cellData ? cellData.value : 'N/A'; // 값이 없으면 'N/A' 표시
-                            const value = frSecCd + "-" + toSecCd;
-                            rowContent += `<td>${value}</td>`;
+                            const val = cellData ? cellData.value : 'N/A'; // 값이 없으면 'N/A' 표시
+                            rowContent += `<td>${val.toFixed(4)}</td>`;
                         });
 
                         row.innerHTML = rowContent;
