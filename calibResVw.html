@@ -131,7 +131,7 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_name}</a></td>
-                        <td tooltip="${variable.count}"><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_dsp_nm}</a></td>
+                        <td><a href="calibRes${variable.count}.html?varNm=${variable.variable_name}" target="if1">${variable.variable_dsp_nm}</a></td>
                         <td style=display:>${variable.count}</td>
                     `;
                     tableBody.appendChild(row);
@@ -151,7 +151,7 @@
                     <tr>
                         <th>Variable Name</th>
                         <th>Variable Display Name</th>
-                        <th>Cnt</th>
+                        <!-- <th>Count</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -165,9 +165,7 @@
         </div>
     </div>
 
-
-
-    <div style="display:;margin-top:20px;background-color:;text-align:center">
+    <div style="display:;margin-top:10px;background-color:;text-align:center">
         <!-- <button class=button-17 role="button" onclick="self.reload()">리셋하기</button> -->
         <button class=button-17 role="button" onclick="self.close()">창 닫기</button>
     </div>
