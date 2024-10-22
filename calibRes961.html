@@ -93,7 +93,7 @@
                             const cellData = filteredData.find(item => item.fr_sec_cd === frSecCd && item.to_sec_cd === toSecCd);
 
                             const val = cellData ? cellData.value : 'N/A'; // 값이 없으면 'N/A' 표시
-                            rowContent += `<td>${val.toFixed(4)}</td>`;
+                            rowContent += `<td title=${val}>${val.toFixed(4)}</td>`;
                         });
 
                         row.innerHTML = rowContent;
