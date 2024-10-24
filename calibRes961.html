@@ -19,13 +19,16 @@
             padding-bottom:8px;
             font-size:10px;
         }
+        .td1 {
+            background-color:#eee;
+        }
     </style>
 </head>
 <body>
-    <h1>Calibration Parameters Table</h1>
-    <table id="calibrationTable">
+    <h1>Calibration Parameters Table v2</h1>
+    <table id="calibrationTable" class="tbl1" border=0 cellpadding="1" cellspacing="1" bgcolor=gray>
         <thead>
-            <tr id="tableHeader"></tr>
+            <tr id="tableHeader" style="background-color:#eee"></tr>
         </thead>
         <tbody id="tableBody"></tbody>
     </table>
@@ -75,7 +78,7 @@
 
 
                     toSecCdList.forEach(toSecCd => {
-                        headerRow += `<th>${toSecCd}</th>`;
+                        headerRow += `<th style="background-color:#eee">${toSecCd}</th>`;
                     });
                     tableHeader.innerHTML = headerRow;
 
@@ -93,7 +96,7 @@
                             const cellData = filteredData.find(item => item.fr_sec_cd === frSecCd && item.to_sec_cd === toSecCd);
 
                             const val = cellData ? cellData.value : 'N/A'; // 값이 없으면 'N/A' 표시
-                            rowContent += `<td title=${val}>${val.toFixed(4)}</td>`;
+                            rowContent += `<td style="background-color:white" title=${val}>${val.toFixed(4)}</td>`;
                         });
 
                         row.innerHTML = rowContent;
