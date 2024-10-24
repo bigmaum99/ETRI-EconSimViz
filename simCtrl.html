@@ -122,6 +122,10 @@
 	    var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
 		}			
 
+		function goIntiCndn	(){
+	    var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
+		}			
+
 		function getFileExtension(filePath) {
 		    // 파일 경로에서 마지막 점(.) 이후의 문자열을 확장자로 추출
 		    return filePath.split('.').pop();
@@ -152,7 +156,7 @@
 						setTimeout(function() {
 						    objectElement.data = "";  
 						    objectElement.type = "";
-						}, (sec + 2) * 1000);  // sec 초 + 2초를 밀리초로 변환
+						}, (sec + 5) * 1000);  // sec 초 + 2초를 밀리초로 변환
         }
     }
 
@@ -178,7 +182,8 @@
 
 <body style="background-color: #f5f5f9;" class="container">
 
-	<div align="center" style="background-color:;">
+
+	<div align="center" style="background-color:;text-align:left;padding-left:100px;margin-bottom:0">
 	    <!-- 첫 번째 Select Box: 2015 ~ 2022 (기본값: 2015) -->
     <label for="year-select" id=lb1>년도:</label>
     <select id="year-select">
@@ -204,7 +209,6 @@
     </select>
 	</div>
 
-
 	<div align=center>
 		<object type="" data="" id="resWin" class="resobj padding-bottom card"></object>
 	</div>
@@ -213,7 +217,7 @@
 	<div align=center style="margin-top: 30px;">
 		<button class="btn-17" role="button" onclick="show('./img_cal_ing.png', 3)">Calibration 실행</button>
 		<button class="btn-17" role="button" onclick="goCalRes()">Calibration 결과보기</button>
-		<button class="btn-17" role="button">초기 조건 보기</button>
+		<button class="btn-17" role="button" onclick="goIntiCndn()">초기 조건 보기</button>
 
 		<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 5)">Simulation 실행</button>
 		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">Simulation 결과보기</button>
