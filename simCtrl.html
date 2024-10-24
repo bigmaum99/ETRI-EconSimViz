@@ -18,9 +18,43 @@
 
 
 		<style>
-		body {
-			margin-top:100px;
-		}
+		.btn-17 {
+		  align-items: center;
+		  appearance: none;
+		  background-color: #fff;
+		  border-radius: 24px;
+		  border-style: none;
+		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+		  box-sizing: border-box;
+		  color: #3c4043;
+		  cursor: pointer;
+		  display: inline-flex;
+		  fill: currentcolor;
+		  font-family: "Google Sans",Roboto,Arial,sans-serif;
+		  font-size: 18px;
+		  font-weight: 500;
+		  height: 48px;
+		  justify-content: center;
+		  letter-spacing: .25px;
+		  line-height: normal;
+		  max-width: 100%;
+		  overflow: visible;
+		  padding: 2px 24px;
+		  position: relative;
+		  text-align: center;
+		  text-transform: none;
+		  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+		  user-select: none;
+		  -webkit-user-select: none;
+		  touch-action: manipulation;
+		  width: auto;
+		  will-change: transform,opacity;
+		  z-index: 0;
+		  padding:10px;
+		  margin-left:00px;
+		}		
+
+		body {			margin-top:100px;		}
 
 		.btn1 {
 			height:200px; width:300; font-size:200;	margin:10px;
@@ -57,41 +91,6 @@
         font-size: 50px; /* 글씨 크기 설정 */
 
 		}
-		.btn-17 {
-		  align-items: center;
-		  appearance: none;
-		  background-color: #fff;
-		  border-radius: 24px;
-		  border-style: none;
-		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-		  box-sizing: border-box;
-		  color: #3c4043;
-		  cursor: pointer;
-		  display: inline-flex;
-		  fill: currentcolor;
-		  font-family: "Google Sans",Roboto,Arial,sans-serif;
-		  font-size: 18px;
-		  font-weight: 500;
-		  height: 48px;
-		  justify-content: center;
-		  letter-spacing: .25px;
-		  line-height: normal;
-		  max-width: 100%;
-		  overflow: visible;
-		  padding: 2px 24px;
-		  position: relative;
-		  text-align: center;
-		  text-transform: none;
-		  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-		  user-select: none;
-		  -webkit-user-select: none;
-		  touch-action: manipulation;
-		  width: auto;
-		  will-change: transform,opacity;
-		  z-index: 0;
-		  padding:10px;
-		  margin-left:00px;
-		}		
 	</style>
 
 
@@ -162,34 +161,36 @@
 <body style="background-color: #f5f5f9;">
 
 
-	<div align=center style="background-color:#eee;text-align:center;margin-top: 30px;">
-	    <!-- 첫 번째 Select Box: 2015 ~ 2022 (기본값: 2015) -->
-    <label for="year-select" id=lb1>년도:</label>
-    <select id="year-select">
-        <option value="2015" selected>2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-    </select>
-   	&nbsp;&nbsp;&nbsp;
+	<div align=center style="background-color:;margin-top: 30px;">
+			<div style="width:1200px;background-color:;text-align:left">
+		    <!-- 첫 번째 Select Box: 2015 ~ 2022 (기본값: 2015) -->
+	    <label for="year-select" id=lb1>Simulation 년도:</label>
+	    <select id="year-select">
+	        <option value="2015" selected>2015</option>
+	        <option value="2016">2016</option>
+	        <option value="2017">2017</option>
+	        <option value="2018">2018</option>
+	        <option value="2019">2019</option>
+	        <option value="2020">2020</option>
+	        <option value="2021">2021</option>
+	        <option value="2022">2022</option>
+	    </select>
+	   	&nbsp;&nbsp;&nbsp;
 
 
-    <!-- 두 번째 Select Box: 1 ~ 4 -->
-    <label for="quarter-select" id=lb2>분기:</label>
-    <select id="quarter-select">
-        <option value="Q1">1</option>
-        <option value="Q2">2</option>
-        <option value="Q3">3</option>
-        <option value="Q4">4</option>
-    </select>
+	    <!-- 두 번째 Select Box: 1 ~ 4 -->
+	    <label for="quarter-select" id=lb2>분기:</label>
+	    <select id="quarter-select">
+	        <option value="Q1">1</option>
+	        <option value="Q2">2</option>
+	        <option value="Q3">3</option>
+	        <option value="Q4">4</option>
+	    </select>
+	  </div>
 	</div>
 
 	<div align=center>
-		<object type="" data="" id="resWin" class="resobj padding-bottom card"></object>
+		<object type="" data="" id="resWin" class="resobj padding-bottom"></object>
 	</div>
 
 
