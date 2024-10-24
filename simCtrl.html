@@ -101,7 +101,7 @@
 		}			
 
 		function goIntiCndn	(){
-	    var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
+	    var ret = window.open('./initCndnVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
 		}			
 
 		function getFileExtension(filePath) {
@@ -131,10 +131,11 @@
 						    objectElement.type = "image/png";
 						}, sec * 1000);  // sec 초를 밀리초로 변환
 
-						setTimeout(function() {
-						    objectElement.data = "";  
-						    objectElement.type = "";
-						}, (sec + 5) * 1000);  // sec 초 + 2초를 밀리초로 변환
+						// setTimeout(function() {
+						//     objectElement.data = "";  
+						//     objectElement.type = "";
+						// }, (sec + 5) * 1000); 
+						// sec 초 + 2초를 밀리초로 변환
         }
     }
 
