@@ -61,18 +61,11 @@
 		}
 
 		.resobj {
-			
+			margin-top: 30px;
 			width:1400px;
 			height:800px;
-			margin-top: 30px;
 		}
 
-	
-		.div1xxx {
-			width:1200px;
-	    justify-content: center;
-	    height: 100px;
-		}
 
 	  
 	    #year-select {
@@ -118,6 +111,17 @@
         var ext = getFileExtension(filePath)
 				if (ext == "png") fileType = "image/png";
 				if (ext == "svg") fileType	= "image/svg+xml"
+
+
+ 	    	// console.log(ext)
+		    // if (ext == "png") {
+		    // 		objectElement.style.width = "1400px"
+		    // 		objectElement.style.height = "800px"
+		    // }
+		    // else {
+		    // 		objectElement.style.width = ""
+		    // 		objectElement.style.height = ""
+		    // }
 
         objectElement.type = fileType;
         
@@ -199,7 +203,7 @@
 		<button class="btn-17" role="button" onclick="goIntiCndn()">초기 조건</button>
 
 		<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 5)">Simulation 실행</button>
-		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">Simulation 결과차트</button>
+		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">Simulation 결과</button>
 		<button class="btn-17" role="button" onclick="show('./eco_sim_db_ctrBnk.svg', 0)">메인차트</button>
 		<button class="btn-17" role="button" onclick="show('./eco_sim_db_3cat.svg', 0)">3차산업차트</button>
 
