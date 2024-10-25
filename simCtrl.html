@@ -68,23 +68,10 @@
 
 
 	  
-	    #year-select {
-	        font-size: 40px; /* 글씨 크기 설정 */
-	    }		
-
-	    #quarter-select {
-	        font-size: 40px; /* 글씨 크기 설정 */
-	    }		
-
-		#lb1 {
-        font-size: 40px; /* 글씨 크기 설정 */
-
-		}
-
-		#lb2 {
-        font-size: 40px; /* 글씨 크기 설정 */
-
-		}
+	    #year-select {font-size: 30px;}
+	    #quarter-select {font-size: 30px;}		
+			#lb1 {font-size: 30px;}
+			#lb2 {font-size: 30px;}
 	</style>
 
 
@@ -111,17 +98,6 @@
         var ext = getFileExtension(filePath)
 				if (ext == "png") fileType = "image/png";
 				if (ext == "svg") fileType	= "image/svg+xml"
-
-
- 	    	// console.log(ext)
-		    // if (ext == "png") {
-		    // 		objectElement.style.width = "1400px"
-		    // 		objectElement.style.height = "800px"
-		    // }
-		    // else {
-		    // 		objectElement.style.width = ""
-		    // 		objectElement.style.height = ""
-		    // }
 
         objectElement.type = fileType;
         
