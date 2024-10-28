@@ -1,0 +1,1 @@
+python 0.cal_cat10.py
