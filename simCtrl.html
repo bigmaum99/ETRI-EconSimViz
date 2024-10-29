@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  class="light-style"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="./assets/"
-  data-template="horizontal-menu-template"
+	lang="en"
+	class="light-style"
+	dir="ltr"
+	data-theme="theme-default"
+	data-assets-path="./assets/"
+	data-template="horizontal-menu-template"
 >
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>Financial Simullation Control</title>
+		<title>Financial Simullation Control</title>
 		<style>
 		.btn-17 {
-		  align-items: center;
-		  appearance: none;
-		  background-color: #fff;
-		  border-radius: 18px;
-		  border-style: none;
-		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-		  box-sizing: border-box;
-		  color: #3c4043;
-		  cursor: pointer;
-		  display: inline-flex;
-		  fill: currentcolor;
-		  font-family: "Google Sans",Roboto,Arial,sans-serif;
-		  font-size: 16px;
-		  font-weight: 500;
-		  height: 48px;
-		  justify-content: center;
-		  letter-spacing: .25px;
-		  line-height: normal;
-		  overflow: visible;
-		  padding: 2px 24px;
-		  position: relative;
-		  text-align: center;
-		  text-transform: none;
-		  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-		  user-select: none;
-		  -webkit-user-select: none;
-		  touch-action: manipulation;
-		  max-width: 100%;
-		  width: auto;
-		  will-change: transform,opacity;
-		  z-index: 0;
-		  padding:10px;
-		  margin-left:5px;
+			align-items: center;
+			appearance: none;
+			background-color: #fff;
+			border-radius: 18px;
+			border-style: none;
+			box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+			box-sizing: border-box;
+			color: #3c4043;
+			cursor: pointer;
+			display: inline-flex;
+			fill: currentcolor;
+			font-family: "Google Sans",Roboto,Arial,sans-serif;
+			font-size: 16px;
+			font-weight: 500;
+			height: 48px;
+			justify-content: center;
+			letter-spacing: .25px;
+			line-height: normal;
+			overflow: visible;
+			padding: 2px 24px;
+			position: relative;
+			text-align: center;
+			text-transform: none;
+			transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+			max-width: 100%;
+			width: auto;
+			will-change: transform,opacity;
+			z-index: 0;
+			padding:10px;
+			margin-left:5px;
 		}		
 
 		body {margin-top:0px;}
@@ -54,30 +54,30 @@
 		.btn1 {height:200px; width:300; font-size:200;	margin:10px;}
 		
 		.resobj { margin-top: 20px;width:1400px;height:800px;
-	    border: 5px solid silver; /* 기본 테두리 색상 */
-	    border-radius: 20px; /* 둥근 테두리 */
-	    padding: 10px; /* 안쪽 여백 */
-	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+			border: 5px solid silver; /* 기본 테두리 색상 */
+			border-radius: 20px; /* 둥근 테두리 */
+			padding: 10px; /* 안쪽 여백 */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 		}
 
-    #year-select {font-size: 25px;}
-    #quarter-select {font-size: 25px;}		
+		#year-select {font-size: 25px;}
+		#quarter-select {font-size: 25px;}		
 /*    #chart-select {font-size: 16px;}		*/
 		#lb1 {font-size: 30px;}
 		#lb2 {font-size: 30px;}
 
-    /* select 박스 스타일 */
-    select {
-      border: 1px solid silver; /* 회색 테두리 설정 */
-      padding: 12px;
-      font-size: 200px;
-      border-radius: 18px; /* 선택사항: 둥근 테두리 */
-		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-		  margin-left:5px;
-    }			
-    select:focus {border: 1px solid silver;}
-    select:active {border: 1px solid silver;}
-    select:focus-visible {border: 1px solid silver;}
+		/* select 박스 스타일 */
+		select {
+			border: 1px solid silver; /* 회색 테두리 설정 */
+			padding: 12px;
+			font-size: 200px;
+			border-radius: 18px; /* 선택사항: 둥근 테두리 */
+			box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+			margin-left:5px;
+		}			
+		select:focus {border: 1px solid silver;}
+		select:active {border: 1px solid silver;}
+		select:focus-visible {border: 1px solid silver;}
 		select:valid {border: 1px solid silver;}    
 		select:invalid {border: 1px solid silver;}    
 	</style>
@@ -87,8 +87,8 @@
 		function goCalRes(){ var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);}			
 		function goIntiCndn	(){var ret = window.open('./initCndnVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);}			
 		function getFileExtension(filePath) {
-		    // 파일 경로에서 마지막 점(.) 이후의 문자열을 확장자로 추출
-		    return filePath.split('.').pop();
+				// 파일 경로에서 마지막 점(.) 이후의 문자열을 확장자로 추출
+				return filePath.split('.').pop();
 		}
 
 		function showChart(){
@@ -98,100 +98,100 @@
 			var chartMode = document.getElementById('chart-select').value;
 
 			switch (chartMode) {
-			    case "ctrBnk":
+					case "ctrBnk":
 					svgFile = "./data/ctrBnk/eco_sim_db_ctrBnk.svg";
-			        break;
-			    case "cat03":
+							break;
+					case "cat03":
 					svgFile = "./data/cat03/" + "simulation-quarter-results-" + yrqtr + "-cat03-run40.svg";
-			        break;
-			    case "cat10":
+							break;
+					case "cat10":
 					svgFile = "./data/cat10/" + "simulation-quarter-results-" + yrqtr + "-cat10-run40.svg";
-			        break;
-			    default:
-			        console.log("해당하는 케이스가 없습니다. 이 케이스는 오면 안됩니다.");
-			        break;
+							break;
+					default:
+							console.log("해당하는 케이스가 없습니다. 이 케이스는 오면 안됩니다.");
+							break;
 			}
 			show(svgFile, 0);
 		}
 
 		function show(filePath, sec) {
-        var objectElement = document.getElementById('resWin');
-        
-        // 파일 경로와 유형 설정
-        objectElement.data = filePath;  
+				var objectElement = document.getElementById('resWin');
+				
+				// 파일 경로와 유형 설정
+				objectElement.data = filePath;  
 
-        var ext = getFileExtension(filePath)
+				var ext = getFileExtension(filePath)
 				if (ext == "png") fileType = "image/png";
 				if (ext == "svg") fileType	= "image/svg+xml"
 
-        objectElement.type = fileType;
-        
-        // 오브젝트 보이도록 설정
-        objectElement.style.display = 'block';
-        
-        // sec 초 후에 오브젝트를 숨김
-        if (sec > 0){
+				objectElement.type = fileType;
+				
+				// 오브젝트 보이도록 설정
+				objectElement.style.display = 'block';
+				
+				// sec 초 후에 오브젝트를 숨김
+				if (sec > 0){
 						setTimeout(function() {
-						    objectElement.data = "img_simDone.png";  
-						    objectElement.type = "image/png";
+								objectElement.data = "img_simDone.png";  
+								objectElement.type = "image/png";
 						}, sec * 1000);  // sec 초를 밀리초로 변환
-        }
-    }
+				}
+		}
 
-    function dnPDF() {
-    	
+		function dnPDF() {
+			
 			var selectedYear = document.getElementById('year-select').value;
 			var selectedQuarter = document.getElementById('quarter-select').value;
 
-      // a 태그를 생성하여 다운로드 링크 설정
-      var link = document.createElement('a');
-      //link.href = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 다운로드할 PDF 파일 경로
-      //link.download = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 저장할 파일 이름 설정
+			// a 태그를 생성하여 다운로드 링크 설정
+			var link = document.createElement('a');
+			//link.href = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 다운로드할 PDF 파일 경로
+			//link.download = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 저장할 파일 이름 설정
 
-      link.href = "./downloaded_pdf.pdf";
-      link.download =  "./Report_" +  + selectedYear + selectedQuarter + ".pdf";
+			link.href = "./downloaded_pdf.pdf";
+			link.download =  "./Report_" +  + selectedYear + selectedQuarter + ".pdf";
 
-      // a 태그를 클릭하는 이벤트 발생
-      //link.click();
+			// a 태그를 클릭하는 이벤트 발생
+			//link.click();
 
 
-      var h = window.open(link.href, "_blank", "")
-    }		
+			var h = window.open(link.href, "_blank", "")
+		}		
 
-    function showFullWin(){
-    	var popupUrl = objectElement = document.getElementById('resWin').data
-    	window.open(popupUrl, 'popWin', 'top=10,width=1400,height=800,left=10');
-    }
+		function showFullWin(){
+			var popupUrl = objectElement = document.getElementById('resWin').data
+			window.open(popupUrl, 'popWin', 'top=10,width=1400,height=800,left=10');
+		}
 	</script>
 </head>
 
 
 <body style="background-color: #f5f5f9;">
 
-	<div align=center style="background-color:	;margin-top: 10px;">
-		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
-		  <div class="left" style="width:50%;background-color:">
-		    <label for="year-select" id=lb1>시뮬레이션 대상 년도:</label>
-		    <select id="year-select"  onchange="showChart()">
-		        <option value="2015" selected>2015</option>
-		        <option value="2016">2016</option>
-		    </select>
-		   	&nbsp;&nbsp;&nbsp;
+	<div align=center style="background-color:;margin-top: 10px;">
 
-		    <!-- 두 번째 Select Box: 1 ~ 4 -->
-		    <label for="quarter-select" id=lb2>분기:</label>
-		    <select id="quarter-select" onchange="showChart()">
-		        <option value="Q1">01</option>
-		        <option value="Q2">02</option>
-		        <option value="Q3">03</option>
-		        <option value="Q4">04</option>
-		    </select>
+		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
+			<div class="left" style="width:50%;background-color:">
+				<label for="year-select" id=lb1>시뮬레이션 대상 년도:</label>
+				<select id="year-select"  onchange="showChart()">
+						<option value="2015" selected>2015</option>
+						<option value="2016">2016</option>
+				</select>
+				&nbsp;&nbsp;
+
+				<!-- 두 번째 Select Box: 1 ~ 4 -->
+				<label for="quarter-select" id=lb2>분기:</label>
+				<select id="quarter-select" onchange="showChart()">
+						<option value="Q1">01</option>
+						<option value="Q2">02</option>
+						<option value="Q3">03</option>
+						<option value="Q4">04</option>
+				</select>
 		</div>
-	  <div class="right" style="width:50%;background-color:whitesmoke;text-align:right">
+		<div class="right" style="width:50%;background-color:;text-align:right">
 			<button class="btn-17" role="button" onclick="show('./img_cal_ing.png', 3)">캘리브레이션 실행</button>
 			<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 3)">시뮬레이션 실행</button>
 
-			<button class="btn-17" role="button" onclick="showFullWin()" title="새창에서 보여주기" style="height:45px;overflow-y:hidden"><img src="./open.png" width="20" height="20"></button>
 		</div>			
 
 	</div>
@@ -201,21 +201,19 @@
 	</div>
 
 
-		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
-	<!-- <div align=center style="margin-top: 10px;"> -->
+	<div style="width:1200px;background-color:;text-align:center;padding:10px">
 		<button class="btn-17" role="button" onclick="goCalRes()">캘리브레이션 결과보기</button>
 		<button class="btn-17" role="button" onclick="goIntiCndn()">초기조건 보기</button>
 		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">시뮬레이션 결과 테이블 보기</button>
 		<button class="btn-17" role="button" onclick="showChart()">시뮬레이션 결과 차트 보기 : </button>
-    <select id="chart-select" onchange="showChart()" style="font-size:16px">
-        <option value="ctrBnk">메인 대시보드</option>
-        <option value="cat10">10차 산업분류</option>
-        <option value="cat03">3차 산업분류</option>
-    </select>
-
-
-	<button class="btn-17" role="button" onclick="dnPDF()">보고서 PDF</button>
-
+		<select id="chart-select" onchange="showChart()" style="font-size:16px">
+				<option value="ctrBnk">메인 대시보드</option>
+				<option value="cat10">10차 산업분류</option>
+				<option value="cat03">3차 산업분류</option>
+		</select>
+		<button class="btn-17" role="button" onclick="dnPDF()">보고서 PDF</button>
+		<button class="btn-17" role="button" onclick="showFullWin()" title="새창에서 보여주기" 
+		style="background-image: url('open.png');background-size: 20px 20px;background-repeat:no-repeat;background-position:center;width:50px;height:40;vertical-align:bottom;"></button>
 	</div>
 
 </div>
