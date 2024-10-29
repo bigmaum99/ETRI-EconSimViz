@@ -9,14 +9,9 @@
 >
 <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
     <title>Financial Simullation Control</title>
-
-
 		<style>
 		.btn-17 {
 		  align-items: center;
@@ -54,52 +49,47 @@
 		  margin-left:00px;
 		}		
 
-		body {			margin-top:0px;		}
+		body {margin-top:0px;}
+		.btn1 {height:200px; width:300; font-size:200;	margin:10px;}
+		.resobj { margin-top: 20px;width:1400px;height:800px;}
+		.resIframe {margin-top: 20px;width:1400px;height:800px;}
+  
+    #year-select {font-size: 25px;}
+    #quarter-select {font-size: 25px;}		
+    #chart-select {font-size: 25px;}		
+		#lb1 {font-size: 30px;}
+		#lb2 {font-size: 30px;}
 
-		.btn1 {
-			height:200px; width:300; font-size:200;	margin:10px;
-		}
-
-		.resobj {
-			margin-top: 20px;
-			width:1400px;
-			height:800px;
-		}
-
-		.resIframe {
-			margin-top: 20px;
-			width:1400px;
-			height:800px;
-		}
-	  
-	    #year-select {font-size: 30px;}
-	    #quarter-select {font-size: 30px;}		
-			#lb1 {font-size: 30px;}
-			#lb2 {font-size: 30px;}
+    /* select 박스 스타일 */
+    select {
+      border: 1px solid silver; /* 회색 테두리 설정 */
+      padding: 8px;
+      font-size: 20px;
+      border-radius: 4px; /* 선택사항: 둥근 테두리 */
+    }			
+    select:focus {border: 1px solid silver;}
+    select:active {border: 1px solid silver;}
+    select:focus-visible {border: 1px solid silver;}
+		select:valid {border: 1px solid silver;}    
+		select:invalid {border: 1px solid silver;}    
 	</style>
 
 
 	<script language=jscript>
-		function goCalRes(){
-	    var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
-		}			
-
-		function goIntiCndn	(){
-	    var ret = window.open('./initCndnVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);
-		}			
-
+		function goCalRes(){ var ret = window.open('./calibResVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);}			
+		function goIntiCndn	(){var ret = window.open('./initCndnVw.html', 'PopupWin', `width=1600,height=1000,top=10,left=10`);}			
 		function getFileExtension(filePath) {
 		    // 파일 경로에서 마지막 점(.) 이후의 문자열을 확장자로 추출
 		    return filePath.split('.').pop();
 		}
 
-		function showChart(cat, sec){
+		function showChart(){
 			var yr = document.getElementById('year-select').value;
 			var qtr = document.getElementById('quarter-select').value;
 			var yrqtr = yr + qtr;
+			var chartMode = document.getElementById('chart-select').value;
 
-
-			switch (cat) {
+			switch (chartMode) {
 			    case "ctrBnk":
 					svgFile = "./data/ctrBnk/eco_sim_db_ctrBnk.svg";
 			        break;
@@ -113,8 +103,7 @@
 			        console.log("해당하는 케이스가 없습니다. 이 케이스는 오면 안됩니다.");
 			        break;
 			}
-
-			show(svgFile, sec);
+			show(svgFile, 0);
 		}
 
 		function show(filePath, sec) {
@@ -148,14 +137,17 @@
 
       // a 태그를 생성하여 다운로드 링크 설정
       var link = document.createElement('a');
-      link.href = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 다운로드할 PDF 파일 경로
-      link.download = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 저장할 파일 이름 설정
+      //link.href = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 다운로드할 PDF 파일 경로
+      //link.download = 'simulation Result_' + selectedYear + selectedQuarter + '.pdf';  // 저장할 파일 이름 설정
 
-      //console.log(link.download)
-      //웹사용자의 로컬 어딘가에 저장해야 함
+      link.href = "./downloaded_pdf.pdf";
+      link.download =  "./Report_" +  + selectedYear + selectedQuarter + ".pdf";
 
       // a 태그를 클릭하는 이벤트 발생
-      link.click();
+      //link.click();
+
+
+      var h = window.open(link.href, "_blank", "")
     }		
 
     function showFullWin(){
@@ -170,36 +162,29 @@
 
 	<div align=center style="background-color:	;margin-top: 10px;">
 
-		<div style="width:1200px;background-color:ivory;text-align:left;display:flex;">
+		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
 		  <div class="left" style="width:50%;background-color:">
-		    <label for="year-select" id=lb1>Simulation 년도:</label>
-		    <select id="year-select">
+		    <label for="year-select" id=lb1>Simulation 대상 년도:</label>
+		    <select id="year-select"  onchange="showChart()">
 		        <option value="2015" selected>2015</option>
 		        <option value="2016">2016</option>
-<!-- 		        <option value="2017">2017</option>
-		        <option value="2018">2018</option>
-		        <option value="2019">2019</option>
-		        <option value="2020">2020</option>
-		        <option value="2021">2021</option>
-		        <option value="2022">2022</option> -->
 		    </select>
 		   	&nbsp;&nbsp;&nbsp;
 
 		    <!-- 두 번째 Select Box: 1 ~ 4 -->
 		    <label for="quarter-select" id=lb2>분기:</label>
-		    <select id="quarter-select">
+		    <select id="quarter-select" onchange="showChart()">
 		        <option value="Q1">01</option>
 		        <option value="Q2">02</option>
 		        <option value="Q3">03</option>
 		        <option value="Q4">04</option>
 		    </select>
 		</div>
-	  <div class="right" style="width:50%;background-color:ivory	;text-align:right">
-			<button class="btn-17" role="button" onclick="showChart('ctrBnk', 0)">메인 대시보드</button>
-			<button class="btn-17" role="button" onclick="showChart('cat10', 0)">10차 산업 차트</button>
-			<button class="btn-17" role="button" onclick="showChart('cat03', 0)">3차 산업차트</button>
+	  <div class="right" style="width:50%;background-color:whitesmoke;text-align:right">
+			<button class="btn-17" role="button" onclick="show('./img_cal_ing.png', 3)">캘리브레이션 실행</button>
+			<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 3)">시뮬레이션 실행</button>
 
-			<button class="btn-17" role="button" onclick="showFullWin()" style="width:140px">새창에서 보기</button>
+			<button class="btn-17" role="button" onclick="showFullWin()" style="height:45px;overflow-y:hidden"><img src="./open.png" width="20" height="20"></button>
 		</div>			
 
 	</div>
@@ -210,15 +195,18 @@
 
 
 	<div align=center style="margin-top: 10px;">
-		<button class="btn-17" role="button" onclick="show('./img_cal_ing.png', 3)">Calibration 실행</button>
-		<button class="btn-17" role="button" onclick="goCalRes()">Calibration 결과</button>
-		<button class="btn-17" role="button" onclick="goIntiCndn()">초기 조건</button>
+		<button class="btn-17" role="button" onclick="goCalRes()">Calibration 결과보기</button>
+		<button class="btn-17" role="button" onclick="goIntiCndn()">초기조건 보기</button>
+		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">시뮬레이션 결과 테이블 보기</button>
+		<button class="btn-17" role="button" onclick="showChart()">시뮬레이션 결과 차트 보기 : </button>
+    <select id="chart-select" onchange="showChart()" style="font-size:20px">
+        <option value="ctrBnk">메인 대시보드</option>
+        <option value="cat10">10차 산업분류</option>
+        <option value="cat03">3차 산업분류</option>
+    </select>
 
-		<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 3)">Simulation 실행</button>
-		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">Simulation 결과</button>
 
-
-		<button class="btn-17" role="button" onclick="dnPDF()">보고서 PDF</button>
+	<button class="btn-17" role="button" onclick="dnPDF()">보고서 PDF</button>
 
 	</div>
 
