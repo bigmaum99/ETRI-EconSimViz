@@ -17,7 +17,7 @@
 		  align-items: center;
 		  appearance: none;
 		  background-color: #fff;
-		  border-radius: 24px;
+		  border-radius: 18px;
 		  border-style: none;
 		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
 		  box-sizing: border-box;
@@ -46,26 +46,34 @@
 		  will-change: transform,opacity;
 		  z-index: 0;
 		  padding:10px;
-		  margin-left:00px;
+		  margin-left:5px;
 		}		
 
 		body {margin-top:0px;}
+		
 		.btn1 {height:200px; width:300; font-size:200;	margin:10px;}
-		.resobj { margin-top: 20px;width:1400px;height:800px;}
-		.resIframe {margin-top: 20px;width:1400px;height:800px;}
-  
+		
+		.resobj { margin-top: 20px;width:1400px;height:800px;
+	    border: 5px solid silver; /* 기본 테두리 색상 */
+	    border-radius: 20px; /* 둥근 테두리 */
+	    padding: 10px; /* 안쪽 여백 */
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+		}
+
     #year-select {font-size: 25px;}
     #quarter-select {font-size: 25px;}		
-    #chart-select {font-size: 25px;}		
+/*    #chart-select {font-size: 16px;}		*/
 		#lb1 {font-size: 30px;}
 		#lb2 {font-size: 30px;}
 
     /* select 박스 스타일 */
     select {
       border: 1px solid silver; /* 회색 테두리 설정 */
-      padding: 8px;
-      font-size: 20px;
-      border-radius: 4px; /* 선택사항: 둥근 테두리 */
+      padding: 12px;
+      font-size: 200px;
+      border-radius: 18px; /* 선택사항: 둥근 테두리 */
+		  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+		  margin-left:5px;
     }			
     select:focus {border: 1px solid silver;}
     select:active {border: 1px solid silver;}
@@ -161,10 +169,9 @@
 <body style="background-color: #f5f5f9;">
 
 	<div align=center style="background-color:	;margin-top: 10px;">
-
 		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
 		  <div class="left" style="width:50%;background-color:">
-		    <label for="year-select" id=lb1>Simulation 대상 년도:</label>
+		    <label for="year-select" id=lb1>시뮬레이션 대상 년도:</label>
 		    <select id="year-select"  onchange="showChart()">
 		        <option value="2015" selected>2015</option>
 		        <option value="2016">2016</option>
@@ -184,7 +191,7 @@
 			<button class="btn-17" role="button" onclick="show('./img_cal_ing.png', 3)">캘리브레이션 실행</button>
 			<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 3)">시뮬레이션 실행</button>
 
-			<button class="btn-17" role="button" onclick="showFullWin()" style="height:45px;overflow-y:hidden"><img src="./open.png" width="20" height="20"></button>
+			<button class="btn-17" role="button" onclick="showFullWin()" title="새창에서 보여주기" style="height:45px;overflow-y:hidden"><img src="./open.png" width="20" height="20"></button>
 		</div>			
 
 	</div>
@@ -194,12 +201,13 @@
 	</div>
 
 
-	<div align=center style="margin-top: 10px;">
+		<div style="width:1200px;background-color:;text-align:left;display:flex;padding:10px">
+	<!-- <div align=center style="margin-top: 10px;"> -->
 		<button class="btn-17" role="button" onclick="goCalRes()">캘리브레이션 결과보기</button>
 		<button class="btn-17" role="button" onclick="goIntiCndn()">초기조건 보기</button>
 		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">시뮬레이션 결과 테이블 보기</button>
 		<button class="btn-17" role="button" onclick="showChart()">시뮬레이션 결과 차트 보기 : </button>
-    <select id="chart-select" onchange="showChart()" style="font-size:20px">
+    <select id="chart-select" onchange="showChart()" style="font-size:16px">
         <option value="ctrBnk">메인 대시보드</option>
         <option value="cat10">10차 산업분류</option>
         <option value="cat03">3차 산업분류</option>
