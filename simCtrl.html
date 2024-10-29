@@ -37,7 +37,6 @@
 		  justify-content: center;
 		  letter-spacing: .25px;
 		  line-height: normal;
-		  max-width: 100%;
 		  overflow: visible;
 		  padding: 2px 24px;
 		  position: relative;
@@ -47,6 +46,7 @@
 		  user-select: none;
 		  -webkit-user-select: none;
 		  touch-action: manipulation;
+		  max-width: 100%;
 		  width: auto;
 		  will-change: transform,opacity;
 		  z-index: 0;
@@ -168,9 +168,9 @@
 
 <body style="background-color: #f5f5f9;">
 
-	<div align=center style="background-color:;margin-top: 10px;">
+	<div align=center style="background-color:	;margin-top: 10px;">
 
-		<div style="width:1200px;background-color:;text-align:left;display:flex;">
+		<div style="width:1200px;background-color:ivory;text-align:left;display:flex;">
 		  <div class="left" style="width:50%;background-color:">
 		    <label for="year-select" id=lb1>Simulation 년도:</label>
 		    <select id="year-select">
@@ -194,7 +194,11 @@
 		        <option value="Q4">04</option>
 		    </select>
 		</div>
-	  <div class="right" style="width:50%;background-color:"></div>
+	  <div class="right" style="width:50%;background-color:ivory	;text-align:right">
+			<button class="btn-17" role="button" onclick="showChart('ctrBnk', 0)">메인 대시보드</button>
+			<button class="btn-17" role="button" onclick="showChart('cat10', 0)">10차 산업 차트</button>
+			<button class="btn-17" role="button" onclick="showChart('cat03', 0)">3차 산업차트</button>
+
 			<button class="btn-17" role="button" onclick="showFullWin()" style="width:140px">새창에서 보기</button>
 		</div>			
 
@@ -212,10 +216,6 @@
 
 		<button class="btn-17" role="button" onclick="show('./img_sim_ing.png', 3)">Simulation 실행</button>
 		<button class="btn-17" role="button" onclick="show('./img_simRes.png', 0)">Simulation 결과</button>
-
-		<button class="btn-17" role="button" onclick="showChart('cat10', 0)">Simulation 결과차트</button>
-		<button class="btn-17" role="button" onclick="showChart('ctrBnk', 0)">메인차트</button>
-		<button class="btn-17" role="button" onclick="showChart('cat03', 0)">3차산업차트</button>
 
 
 		<button class="btn-17" role="button" onclick="dnPDF()">보고서 PDF</button>
