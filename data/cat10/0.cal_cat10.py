@@ -41,7 +41,7 @@ def main():
     if not json_files:
         return
     
-    # 4. 사용자로부터 파일 선택
+# 4. 사용자로부터 파일 선택
     try:
         print();
         file_num = int(input("처리할 JSON 파일의 번호를 입력하세요: ")) - 1
@@ -52,15 +52,15 @@ def main():
         print("유효하지 않은 입력입니다. 숫자를 입력해주세요.")
         return
     
-    # 5. 선택한 JSON 파일 읽기
+# 5. 선택한 JSON 파일 읽기
     selected_file = json_files[file_num]
     with open(selected_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
     
-    # 6. 데이터를 가공
+# 6. 데이터를 가공
     processed_data = process_json_data(data)
     
-    # 7. 가공된 결과 라인 생성
+# 7. 가공된 결과 라인 생성
     result_lines = []
     for to_cat10_cd, total_flow_valueB in processed_data.items():
         # 첫 번째로 to_cat10_cd에 ">FIN;"을 더한 결과
@@ -74,7 +74,9 @@ def main():
         result_lines.append(line2)
 
     result_lines.append("")
-    # 8. 원 데이터에서 flow_cat10_id와 flow_valueB 결합하여 결과 파일에 추가
+
+
+# 8. 원 데이터에서 flow_cat10_id와 flow_valueB 결합하여 결과 파일에 추가
     for item in data['data']:
         flow_cat10_id = item['flow_cat10_id']
         flow_valueB = item['flow_valueB']
@@ -82,10 +84,23 @@ def main():
         result_lines.append(combined)
         
         
-    # 9. 가공된 결과 저장할 파일 이름 결정
+# 9. 가공된 결과 저장할 파일 이름 결정
     result_file_name = selected_file.replace('.json', '.txt')
+
+
+
+#10. 파일 이름에서 YR QTR추출하기
+    import re
+    yrqtr = re.search(r'results-(\d{4}Q\d)', result_file_name).group(1);
     
-    # 10. 가공된 결과 저장 (괄호 없이 텍스트 형식, 빈 줄 제거)
+    # 추출한 yrqtr을 result_lines 맨 앞에 추가
+    result_lines.insert(0, "")    
+    result_lines.insert(0, f"YRQTR; {yrqtr}")    
+
+    print(yrqtr)
+
+    
+    # 11. 가공된 결과 저장 (괄호 없이 텍스트 형식, 빈 줄 제거)
     with open(result_file_name, 'w', encoding='utf-8') as f:
         f.write("\n".join(result_lines))
     
