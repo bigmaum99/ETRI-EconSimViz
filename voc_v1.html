@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOC Display</title>
+    <style>
+        body {
+            
+            overflow: hidden;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: gray;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .voc-container {
+
+            width: 90vw;
+            height:85vh;
+            background: rgba(0, 0, 0, 0.1); /* Default background */
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: auto;
+            position: relative;
+            font-size: 75px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Default text-shadow */
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .voc-container::-webkit-scrollbar {
+            display: none;
+        }
+        .voc {
+            white-space: pre-line;
+            width: 100%;
+        }
+        .controls {
+/*            border : 1px, solid, red;*/
+            margin-bottom: 10px;
+        }
+        .controls label {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow for labels */
+        }
+        .controls input {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add shadow for inputs */
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label for="fontSize">글자 크기:</label>
+        <input type="range" id="fontSize" min="20" max="150" value="75" oninput="adjustFontSize(this.value)">
+        <input type="checkbox" id="bgToggle" onchange="toggleBackground()">
+        <label for="bgToggle">Background Image</label>
+    </div>
+    <div class="voc-container" id="vocContainer">
+        <div class="voc" id="vocDisplay"></div>
+    </div>
+
+    <script>
+        const vocData = [
+            { 
+                title: "친절한 상담이 인상적이었어요!", 
+                body: "매장 직원이 매우 친절해서 기분이 좋았습니다. 처음 방문했을 때부터 밝은 인사로 맞이해 주셨고, 차량 옵션 하나하나를 꼼꼼하게 설명해 주셨습니다. 특히 고객이 원하는 차량의 기능과 옵션에 대해 상세하게 안내해 주셔서 더욱 신뢰가 갔습니다. 차량의 성능과 유지보수에 대한 추가적인 설명도 들을 수 있어서 유익했습니다. 덕분에 차량을 선택하는 과정이 한층 더 쉬워졌고 만족스러운 경험이었습니다. 또한, 차량 구매 이후의 유지보수 관련 정보도 함께 제공받아 더욱 신뢰가 생겼습니다. 서비스 품질이 뛰어나 앞으로도 이곳을 이용하고 싶습니다.", date: "2025-02-20", source: "고객 리뷰" },
+            {
+                title: "The friendly consultation was impressive!",
+                body: "The store staff was very friendly, which made me feel good. From the moment I first visited, they welcomed me with a bright greeting and carefully explained each vehicle option. In particular, they provided detailed guidance on the features and options of the vehicle I wanted, which built my trust. I also received additional explanations about the vehicle's performance and maintenance, which was helpful. Thanks to this, the process of selecting a vehicle became much easier, and I had a satisfying experience. Additionally, I received maintenance-related information after purchasing the vehicle, which further increased my trust. The service quality is excellent, and I want to continue using this place in the future.",
+                date: "2025-02-20",
+                source: "Customer Review"
+            },
+            {
+                title: "¡La consulta amable fue impresionante!",
+                body: "El personal de la tienda fue muy amable, lo que me hizo sentir bien. Desde el momento en que visité por primera vez, me recibieron con un saludo cálido y explicaron cuidadosamente cada opción del vehículo. En particular, me brindaron orientación detallada sobre las características y opciones del vehículo que quería, lo que generó confianza. También recibí explicaciones adicionales sobre el rendimiento y mantenimiento del vehículo, lo que fue útil. Gracias a esto, el proceso de selección del vehículo fue mucho más fácil y tuve una experiencia satisfactoria. Además, recibí información sobre el mantenimiento después de la compra, lo que aumentó aún más mi confianza. La calidad del servicio es excelente y quiero seguir utilizando este lugar en el futuro.",
+                date: "2025-02-20",
+                source: "Reseña de Cliente"
+            },
+            { 
+                title: "매장 대기가 너무 길었어요.", 
+                body: "대기 시간이 길었고, 편하게 기다릴 수 있는 공간이 부족했습니다. 처음에는 10분 정도 기다릴 줄 알았는데, 결국 40분이나 기다려야 했습니다. 대기하는 동안 직원들의 안내가 부족해 상황을 정확히 알기 어려웠고, 좌석도 부족해 서서 기다리는 시간이 길었습니다. 특히 주말에는 대기 시간이 더욱 길어져 불편함이 컸습니다. 대기 시스템을 개선하거나 예약 시스템을 도입하면 더욱 원활한 서비스가 될 것 같습니다. 또한, 대기 고객을 위한 간단한 음료 서비스나 편안한 공간이 마련된다면 대기 시간이 덜 지루할 것 같습니다. 보다 체계적인 예약 시스템이 도입되었으면 합니다.", date: "2025-02-19", source: "온라인 피드백" },
+            {
+                title: "The store wait time was too long.",
+                body: "The wait time was long, and there was not enough space to wait comfortably. At first, I thought I would only wait about 10 minutes, but I ended up waiting for 40 minutes. During the wait, the staff provided little guidance, making it difficult to understand the situation clearly, and there were not enough seats, so I had to stand for a long time. The wait time was even longer on weekends, which made it more inconvenient. If the waiting system is improved or a reservation system is introduced, the service could be more efficient. Additionally, providing simple beverages or a comfortable space for waiting customers would make the wait less tedious. I hope a more systematic reservation system is introduced.",
+                date: "2025-02-19",
+                source: "Online Feedback"
+            },
+            {   
+                title: "차량 옵션 설명이 부족했습니다.", 
+                body: "차량 구매 전 다양한 옵션에 대한 자세한 설명이 부족했습니다. 여러 기능이 있는 차량이었음에도 불구하고 중요한 옵션들에 대한 설명이 충분하지 않았습니다. 직원에게 질문을 해야만 원하는 정보를 얻을 수 있었고, 기본적인 설명만으로는 선택이 어려웠습니다. 차량의 연비, 유지보수 비용, 추가 기능 등에 대한 정보를 더욱 체계적으로 제공하면 고객이 더욱 만족할 것 같습니다. 차량 옵션별 비교 자료가 있거나 디지털 안내 시스템이 도입되면 더 좋은 경험이 될 것 같습니다. 또한, 테스트 드라이브를 통해 각 옵션이 실제 주행에 어떤 영향을 미치는지 경험할 수 있으면 더욱 도움이 될 것 같습니다. 옵션 선택 가이드를 제공하면 더 쉽게 결정할 수 있을 것 같습니다.", date: "2025-02-18", source: "설문 조사" },
+            {
+                title: "The explanation of vehicle options was insufficient.",
+                body: "Before purchasing the vehicle, there was a lack of detailed explanations about the various options. Although the vehicle had many features, there was not enough information provided about the important options. I had to ask the staff questions to get the information I needed, and the basic explanations alone made it difficult to choose. If more structured information is provided on fuel efficiency, maintenance costs, and additional features, customers would be more satisfied. Having comparison materials for each vehicle option or implementing a digital guide system would create a better experience. Also, test-driving the vehicle to see how each option affects driving would be very helpful. Providing an option selection guide would make the decision process easier.",
+                date: "2025-02-18",
+                source: "Survey"
+            },
+            {
+                title: "El tiempo de espera en la tienda fue demasiado largo.",
+                body: "El tiempo de espera fue largo y no había suficiente espacio para esperar cómodamente. Al principio, pensé que solo esperaría unos 10 minutos, pero terminé esperando 40 minutos. Durante la espera, el personal brindó poca orientación, lo que dificultó comprender la situación con claridad, y no había suficientes asientos, por lo que tuve que esperar de pie durante mucho tiempo. El tiempo de espera fue aún más largo los fines de semana, lo que lo hizo más incómodo. Si se mejora el sistema de espera o se introduce un sistema de reservas, el servicio podría ser más eficiente. Además, proporcionar bebidas simples o un espacio cómodo para los clientes que esperan haría que la espera fuera menos tediosa. Espero que se introduzca un sistema de reservas más sistemático.",
+                date: "2025-02-19",
+                source: "Opinión en Línea"
+            },
+            {
+                title: "La explicación de las opciones del vehículo fue insuficiente.",
+                body: "Antes de comprar el vehículo, hubo una falta de explicaciones detalladas sobre las diversas opciones. Aunque el vehículo tenía muchas características, no se proporcionó suficiente información sobre las opciones importantes. Tuve que hacer preguntas al personal para obtener la información que necesitaba, y solo con las explicaciones básicas fue difícil elegir. Si se proporciona información más estructurada sobre la eficiencia del combustible, los costos de mantenimiento y las características adicionales, los clientes estarían más satisfechos. Tener materiales de comparación para cada opción del vehículo o implementar un sistema de guía digital mejoraría la experiencia. Además, hacer una prueba de conducción para ver cómo cada opción afecta la conducción sería muy útil. Proporcionar una guía de selección de opciones facilitaría el proceso de decisión.",
+                date: "2025-02-18",
+                source: "Encuesta"
+            }
+        ];
+
+        let vocIndex = 0;
+        let container = document.getElementById("vocDisplay");
+        let vocContainer = document.getElementById("vocContainer");
+        let vantaEffect = null;
+
+        async function displayVOC() {
+            while (true) {
+                container.innerHTML = "";
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                let titleElement = document.createElement("div");
+                titleElement.style.fontWeight = "bold";
+                let bodyElement = document.createElement("div");
+                bodyElement.style.marginTop = "10px";
+                let footerElement = document.createElement("div");
+                footerElement.style.marginTop = "20px";
+                footerElement.style.fontSize = "45px";
+                footerElement.style.textAlign = "right";
+                
+                container.appendChild(titleElement);
+                container.appendChild(bodyElement);
+                container.appendChild(footerElement);
+                
+                await typeText(vocData[vocIndex].title, titleElement);
+                await typeText("\n", bodyElement, 500);
+                await typeText(vocData[vocIndex].body, bodyElement, true);
+                await typeText(`Date: ${vocData[vocIndex].date} | source: ${vocData[vocIndex].source}`, footerElement, true);
+                
+                await new Promise(resolve => setTimeout(resolve, 5000));
+                
+                vocIndex = (vocIndex + 1) % vocData.length;
+            }
+        }
+
+        function typeText(text, element, autoScroll = false, delay = 50) {
+            return new Promise(resolve => {
+                let i = 0;
+                function typing() {
+                    if (i < text.length) {
+                        element.innerHTML += text[i];
+                        i++;
+                        if (autoScroll) {
+                            vocContainer.scrollTop = vocContainer.scrollHeight;
+                        }
+                        setTimeout(typing, delay);
+                    } else {
+                        resolve();
+                    }
+                }
+                typing();
+            });
+        }
+
+        function toggleBackground() {
+            const checkbox = document.getElementById("bgToggle");
+
+            if (!checkbox.checked)
+            {
+
+                vocContainer.style.backgroundImage = "url('your-image-url.jpg')";
+                vocContainer.style.backgroundSize = "cover";
+                container.style.fontWeight = "normal"; // Regular text when background is visible
+
+                if (vantaEffect !== null) {
+                    vantaEffect.destroy(); // Destroy VANTA.CLOUDS effect
+                    vantaEffect = null;
+                }
+            } else {
+                vocContainer.style.backgroundImage = "none";
+                container.style.fontWeight = "bold"; // Bold text when background is not visible
+
+                if (vantaEffect === null) {
+                    vantaEffect = VANTA.CLOUDS({
+                        el: "body",
+                        mouseControls: true,
+                        touchControls: true,
+                        gyroControls: false,
+                        minHeight: 200.00,
+                        minWidth: 200.00,
+                        backgroundAlpha: 0
+                    });
+                }
+            }
+        }
+
+        function adjustFontSize(size) {
+            vocContainer.style.fontSize = size + "px";
+        }
+
+        displayVOC();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.clouds.min.js"></script>
+</body>
+</html>
